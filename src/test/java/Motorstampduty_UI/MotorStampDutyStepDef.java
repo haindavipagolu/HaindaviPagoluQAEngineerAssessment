@@ -48,6 +48,7 @@ public class MotorStampDutyStepDef {
     public void validateCalculationPage(String isPassengerVehicle, int price) {
         $(".modal.show").should(Condition.visible, Duration.ofSeconds(15));
         $(byXpath("//td[normalize-space()='Details entered:']")).should(Condition.visible, Duration.ofSeconds(15));
+        sleep(5000);
         String isPassengerVehicleEntered = $(byXpath("//td[normalize-space()='Yes']")).getText();
         System.out.println("Validate isPassengerVehicle started");
         System.out.println("Expected isPassengerVehicle:" + isPassengerVehicle);
@@ -67,6 +68,6 @@ public class MotorStampDutyStepDef {
     public void iClickClose() {
         $(byXpath("//button[normalize-space()='Close']")).click();
         switchTo().window(0);
-        $(byXpath("//td[normalize-space()='Details entered:']")).should(Condition.visible, Duration.ofSeconds(15));
+        $(byXpath("//button[normalize-space()='Calculate']")).should(Condition.visible, Duration.ofSeconds(15));
     }
 }

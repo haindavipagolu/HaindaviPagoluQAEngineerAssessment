@@ -49,10 +49,18 @@ public class MotorStampDutyStepDef {
         $(".modal.show").should(Condition.visible, Duration.ofSeconds(15));
         $(byXpath("//td[normalize-space()='Details entered:']")).should(Condition.visible, Duration.ofSeconds(15));
         String isPassengerVehicleEntered = $(byXpath("//td[normalize-space()='Yes']")).getText();
+        System.out.println("Validate isPassengerVehicle started");
+        System.out.println("Expected isPassengerVehicle:" + isPassengerVehicle);
+        System.out.println("Entered isPassengerVehicle:" + isPassengerVehicleEntered);
         Assert.assertEquals(isPassengerVehicle, isPassengerVehicleEntered);
+        System.out.println("Validate isPassengerVehicle ended");
         String priceEntered = $(byXpath("//td[normalize-space()='$45,000.00']")).getText();
         int priceEnteredConvert = (int) Double.parseDouble(priceEntered.replaceAll("[$,]", ""));
+        System.out.println("Validate Price started");
+        System.out.println("Expected price:" + price);
+        System.out.println("Entered price:" + priceEnteredConvert);
         Assert.assertEquals(price, priceEnteredConvert);
+        System.out.println("Validate Price ended");
     }
 
     @Then("User clicked on Close button")
